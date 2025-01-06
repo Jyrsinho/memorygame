@@ -17,7 +17,7 @@ Alerts the user that the new game button has been clicked.
  */
 function clickStartGame() {
     isRunning = true;
-    addCardsButton.color = "white";
+
 }
 
 function clickStopGame() {
@@ -37,15 +37,24 @@ function clickAddCards() {
 function addCards() {
     cardsArea.innerHTML = "";
     for (let i = 0; i < numberOfCards; i++) {
-        const newCard = document.createElement("img")
-        newCard.src = "assets/pattern1.png"
+        let newCard = document.createElement("img")
+        newCard.src = "assets/pattern1.png";
+        newCard.addEventListener("click", function () {
+            openCard(newCard);
+        });
         cardsArea.appendChild(newCard);
     }
 }
 
-function openCard(card) {
-    card.innerHTML = "word";
+function openCard(newCard) {
+        if (newCard.src.includes("assets/pattern1.png")) {
+            newCard.src = "assets/pattern2.png";
+        } else {
+            newCard.src = "assets/pattern1.png";
+        }
 }
+
+
 
 
 function updateNumberOfCardsDisplay() {
@@ -56,6 +65,7 @@ function updateNumberOfCardsDisplay() {
 window.onload = function () {
     addCards();
     updateNumberOfCardsDisplay();
+
 }
 
 
