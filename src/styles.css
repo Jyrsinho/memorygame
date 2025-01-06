@@ -18,6 +18,13 @@ div a {
     display: inline-block;
 }
 
-footer {
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 10px 0;
 }
