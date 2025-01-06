@@ -21,13 +21,17 @@ function clickStartGame() {
 function clickAddCards() {
     numberOfCards = numberOfCards + 2;
     updateNumberOfCardsDisplay();
+    addCards();
 }
 
 
 // TODO: Create a function that sets a given amount of cards to the board
 function addCards() {
+    cardsArea.innerHTML = "";
     for (let i = 0; i < numberOfCards; i++) {
         const newCard = document.createElement("img")
+        newCard.src = "assets/pattern1.png"
+        newCard.alt = "card backside"
         cardsArea.appendChild(newCard);
     }
 }
