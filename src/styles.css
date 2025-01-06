@@ -14,8 +14,8 @@ div {
     text-align: center;
 }
 
-div a {
-    display: inline-block;
+#cards area {
+    display: block;
 }
 
 

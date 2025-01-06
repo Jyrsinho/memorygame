@@ -1,5 +1,5 @@
 
-var numberOfCards = 2;
+let numberOfCards = 2;
 
 const startGameButton = document.getElementById("start game");
 const stopGameButton = document.getElementById("stop game");
@@ -39,9 +39,12 @@ function addCards() {
     for (let i = 0; i < numberOfCards; i++) {
         const newCard = document.createElement("img")
         newCard.src = "assets/pattern1.png"
-        newCard.alt = "card backside"
         cardsArea.appendChild(newCard);
     }
+}
+
+function openCard(card) {
+    card.innerHTML = "word";
 }
 
 
