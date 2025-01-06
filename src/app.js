@@ -2,26 +2,34 @@
 var numberOfCards = 2;
 
 const startGameButton = document.getElementById("start game");
+const stopGameButton = document.getElementById("stop game");
 const addCardsButton = document.getElementById("add cards");
 const cardsArea = document.getElementById("cards area");
 const numberOfCardsDisplay = document.getElementById("number of cards");
+let isRunning = false;
 
 startGameButton.addEventListener("click", clickStartGame)
 addCardsButton.addEventListener("click", clickAddCards);
-
+stopGameButton.addEventListener("click", clickStopGame);
 
 /*
 Alerts the user that the new game button has been clicked.
  */
 function clickStartGame() {
-    addCards();
+    isRunning = true;
+    addCardsButton.color = "white";
+}
 
+function clickStopGame() {
+    isRunning = false;
 }
 
 function clickAddCards() {
-    numberOfCards = numberOfCards + 2;
-    updateNumberOfCardsDisplay();
-    addCards();
+    if (!isRunning) {
+        numberOfCards = numberOfCards + 2;
+        updateNumberOfCardsDisplay();
+        addCards();
+    }
 }
 
 
@@ -36,9 +44,11 @@ function addCards() {
     }
 }
 
+
 function updateNumberOfCardsDisplay() {
     numberOfCardsDisplay.innerHTML = numberOfCards;
 }
+
 
 window.onload = function () {
     addCards();
