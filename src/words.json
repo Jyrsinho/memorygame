@@ -1,0 +1,61 @@
+{
+  "also": {
+    "finnish": "myös",
+    "polish": "także",
+    "themes": ["adverb"]
+  },
+
+  "accident": {
+  "finnish": "onnettomuus",
+  "polish": "przypadek",
+  "themes": ["substantive"]
+  },
+
+  "during": {
+    "finnish": "aikana",
+    "polish": "podczas",
+    "themes": ["preposition"]
+  },
+
+  "above": {
+    "finnish": "yläpuolella",
+    "polish": "ponad",
+    "themes": ["preposition"]
+  },
+
+  "approximately": {
+    "finnish": "suunnilleen",
+    "polish": "około",
+    "themes": ["preposition"]
+  },
+
+  "way": {
+    "finnish": "tapa",
+    "polish": "sposób",
+    "themes": ["noun"]
+  },
+
+  "result": {
+    "finnish": "tulos",
+    "polish": "wynik",
+    "themes": ["noun", "sport"]
+  },
+
+  "condition": {
+    "finnish": "tila",
+    "polish": "stan",
+    "themes": ["noun"]
+  },
+
+  "part": {
+    "finnish": "osa",
+    "polish": "część",
+    "themes": ["noun"]
+  },
+
+  "to belong": {
+    "finnish": "kuulua",
+    "polish": "należeć",
+    "themes": ["verb"]
+  }
+}
