@@ -1,14 +1,4 @@
 "use strict";
-
-let firstGuess = '';
-
-let numberOfPairs = 1;
-let numberOfOpenedCards = 0;
-const cardBackgroundImage = "assets/backpattern.png";
-let isRunning = false;
-let points = 0;         // points accumulated by the player
-const maximumCards = 10; // Maximum amount of cards in the game
-
 const images = [
     {
         'name': 'baby-turtle',
@@ -31,6 +21,15 @@ const images = [
         'img': 'assets/socklady.png',
     }
 ]
+
+let firstGuess = '';
+
+let numberOfPairs = 1;
+let numberOfOpenedCards = 0;
+const cardBackgroundImage = "assets/backpattern.png";
+let isRunning = false;
+let points = 0;         // points accumulated by the player
+const maximumAmountOfPairs = images.length // Maximum amount of cards in the game
 
 
 
@@ -61,9 +60,11 @@ function clickStopGame() {
 
 function clickAddCards() {
     if (!isRunning) {
-        numberOfPairs++;
-        updateNumberOfCardsDisplay();
-        addCards();
+        if (numberOfPairs < maximumAmountOfPairs) {
+            numberOfPairs++;
+            updateNumberOfCardsDisplay();
+            addCards();
+        }
     }
 }
 
