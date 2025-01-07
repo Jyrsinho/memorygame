@@ -1,3 +1,4 @@
+"use strict";
 
 let numberOfCards = 2;
 let numberOfOpenedCards = 0;
@@ -41,14 +42,12 @@ const body = document.body;
 const pointCounter = document.getElementById("pointsCounter");
 
 
-
 startGameButton.addEventListener("click", clickStartGame)
 addCardsButton.addEventListener("click", clickAddCards);
 stopGameButton.addEventListener("click", clickStopGame);
 
-/*
-Alerts the user that the new game button has been clicked.
- */
+// ----------------------------------------------------------------------------
+
 function clickStartGame() {
     isRunning = true;
     body.style.backgroundColor = "white";
@@ -67,17 +66,17 @@ function clickAddCards() {
     }
 }
 
+// ----------------------------------------------------------------------------
 
 // TODO: Create a function that sets a given amount of cards to the board
 function addCards() {
     cardsArea.innerHTML = "";
-    let cardNumber = 0;
     for (let i = 0; i < numberOfCards; i++) {
         let newCard = document.createElement("img")
         let cardImage = document.createElement("img")
         newCard.src = cardbackgroundImage;
         cardImage.src = "assets/pattern" + cardNumber +".png";
-        newCard.addEventListener("click", function () {
+        newCard.addEventListener ("click", function () {
             openCard(newCard, cardImage);
         });
         cardsArea.appendChild(newCard);
