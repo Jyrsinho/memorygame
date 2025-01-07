@@ -22,7 +22,7 @@ const images = [
     }
 ]
 
-let firstGuess = '';
+let firstGuess;
 
 let numberOfPairs = 1;
 let numberOfOpenedCards = 0;
@@ -48,6 +48,11 @@ stopGameButton.addEventListener("click", clickStopGame);
 
 // ----------------------------------------------------------------------------
 
+function initialize() {
+    points = 0;
+
+}
+
 function clickStartGame() {
     isRunning = true;
     body.style.backgroundColor = "white";
@@ -56,6 +61,7 @@ function clickStartGame() {
 function clickStopGame() {
     isRunning = false;
     body.style.backgroundColor = "lightblue";
+    initialize();
 }
 
 function clickAddCards() {
@@ -88,33 +94,43 @@ function addCards() {
 }
 
 function openCard(openedCard, cardImage) {
-        if (isRunning) {
-            if (openedCard.src.includes(cardBackgroundImage) && numberOfOpenedCards < 2) {
-                openedCard.src = cardImage.src
-                numberOfOpenedCards++;
-
-
-            } else if (openedCard.src.includes(cardImage.src))  {
-                openedCard.src = cardBackgroundImage;
-                numberOfOpenedCards--;
-            }
+    if (isRunning) {
+        if (openedCard.src.includes(cardBackgroundImage) && numberOfOpenedCards < 2) {
+            openedCard.src = cardImage.src
+            numberOfOpenedCards++;
         }
-        if (numberOfOpenedCards ===1) firstGuess = openedCard.src;
 
-    if (numberOfOpenedCards === 2) {
-        checkForPair(openedCard);
+        if (numberOfOpenedCards === 1) {
+            firstGuess = openedCard;
+        } else if (numberOfOpenedCards === 2) {
+            checkForPair(openedCard);
+        }
+
     }
-
 }
 
 /**
  * Checks whether the currently opened cards are pairs
  */
 function checkForPair(openedCard) {
-   if (openedCard.src.includes(firstGuess)) {
+   if (openedCard.src.includes(firstGuess.src)) {
        points++
+       setTimeout(() => {
+           openedCard.style.display = "none";
+           firstGuess.style.display = "none";
+       }, 1000);
+   } else {
+       setTimeout(() => {
+           openedCard.src = cardBackgroundImage;
+           firstGuess.src = cardBackgroundImage;
+       }, 1000);
    }
+
+
     updatePointsDisplay()
+    firstGuess = null;
+   numberOfOpenedCards = 0;
+
 }
 
 
@@ -130,6 +146,7 @@ function updatePointsDisplay() {
 
 
 window.onload = function () {
+    initialize()
     addCards();
     updateNumberOfCardsDisplay();
 
