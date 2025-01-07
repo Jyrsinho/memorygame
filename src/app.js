@@ -1,5 +1,8 @@
 
 let numberOfCards = 2;
+const cardbackgroundImage = "assets/backpattern.png";
+
+
 
 const startGameButton = document.getElementById("start game");
 const stopGameButton = document.getElementById("stop game");
@@ -38,23 +41,26 @@ function addCards() {
     cardsArea.innerHTML = "";
     for (let i = 0; i < numberOfCards; i++) {
         let newCard = document.createElement("img")
-        newCard.src = "assets/pattern1.png";
+        let cardImage = document.createElement("img")
+        newCard.src = cardbackgroundImage;
+        cardImage.src = "assets/pattern1.png";
         newCard.addEventListener("click", function () {
-            openCard(newCard);
+            openCard(newCard, cardImage);
         });
         cardsArea.appendChild(newCard);
     }
 }
 
-function openCard(newCard) {
-        if (newCard.src.includes("assets/pattern1.png")) {
-            newCard.src = "assets/pattern2.png";
+function openCard(openedCard, cardImage) {
+        if (openedCard.src.includes(cardbackgroundImage)) {
+            openedCard.src = cardImage.src
         } else {
-            newCard.src = "assets/pattern1.png";
+            openedCard.src = cardbackgroundImage;
         }
+
+
+
 }
-
-
 
 
 function updateNumberOfCardsDisplay() {
@@ -62,11 +68,14 @@ function updateNumberOfCardsDisplay() {
 }
 
 
+
 window.onload = function () {
     addCards();
     updateNumberOfCardsDisplay();
 
 }
+
+
 
 
 
