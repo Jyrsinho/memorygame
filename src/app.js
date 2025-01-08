@@ -41,6 +41,7 @@ const cardsArea = document.getElementById("cards area");
 const numberOfCardsDisplay = document.getElementById("number of pairs");
 const body = document.body;
 const pointCounter = document.getElementById("pointsCounter");
+const guessCounter = document.getElementById("guessCounter");
 
 
 startGameButton.addEventListener("click", clickStartGame)
@@ -104,6 +105,8 @@ function openCard(openedCard, cardImage) {
         if (numberOfOpenedCards === 1) {
             firstGuess = openedCard;
         } else if (numberOfOpenedCards === 2) {
+            numberOfGuesses++;
+            updateNumberOfGuesses();
             checkForPair(openedCard);
         }
 
@@ -142,6 +145,10 @@ function updateNumberOfCardsDisplay() {
 
 function updatePointsDisplay() {
     pointCounter.innerHTML = points;
+}
+
+function updateNumberOfGuesses() {
+    guessCounter.innerHTML = numberOfGuesses;
 }
 
 
