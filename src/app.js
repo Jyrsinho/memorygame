@@ -24,6 +24,7 @@ const images = [
 
 let firstGuess;
 
+let numberOfGuesses = 0;
 let numberOfPairs = 1;
 let numberOfOpenedCards = 0;
 const cardBackgroundImage = "assets/backpattern.png";

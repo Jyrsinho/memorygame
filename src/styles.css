@@ -14,8 +14,22 @@ div {
     text-align: center;
 }
 
+#infoArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px;
+}
+
 #cards area {
-    display: grid;
+    display: flex;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+
 }
 
 
