@@ -113,29 +113,33 @@ function openCard(openedCard, cardImage) {
  * Checks whether the currently opened cards are pairs
  */
 function checkForPair(openedCard) {
-   if (openedCard.src.includes(firstGuess.src)) {
+    const cardOne = openedCard;
+    const cardTwo = firstGuess;
+
+    if (cardOne.src === cardTwo.src) {
        points++
+
        setTimeout(() => {
-           openedCard.style.display = "none";
-           firstGuess.style.display = "none";
+           cardOne.style.display = "none";
+           cardTwo.style.display = "none";
        }, 1000);
    } else {
        setTimeout(() => {
-           openedCard.src = cardBackgroundImage;
-           firstGuess.src = cardBackgroundImage;
+           cardOne.src = cardBackgroundImage;
+           cardTwo.src = cardBackgroundImage;
        }, 1000);
    }
 
 
     updatePointsDisplay()
     firstGuess = null;
-   numberOfOpenedCards = 0;
+    numberOfOpenedCards = 0;
 
 }
 
 
 function updateNumberOfCardsDisplay() {
-    numberOfCardsDisplay.innerHTML = numberOfPairs;
+    numberOfCardsDisplay.innerHTML = numberOfPairs.toString();
 }
 
 
