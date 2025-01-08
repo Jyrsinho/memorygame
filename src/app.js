@@ -112,24 +112,20 @@ function openCard(openedCard, cardImage) {
 /**
  * Checks whether the currently opened cards are pairs
  */
-function checkForPair(openedCard) {
-    const cardOne = openedCard;
-    const cardTwo = firstGuess;
-
-    if (cardOne.src === cardTwo.src) {
-       points++
-
-       setTimeout(() => {
-           cardOne.style.display = "none";
-           cardTwo.style.display = "none";
-       }, 1000);
+async function checkForPair(openedCard) {
+    // If the guess is correct
+    if (openedCard.src === firstGuess.src) {
+        points++
+        await delay(1000);
+        openedCard.style.display = "none";
+        firstGuess.style.display = "none";
+    // if the guess is incorrect
    } else {
-       setTimeout(() => {
-           cardOne.src = cardBackgroundImage;
-           cardTwo.src = cardBackgroundImage;
-       }, 1000);
-   }
+        await delay(1000);
+        openedCard.src = cardBackgroundImage;
+        firstGuess.src = cardBackgroundImage;
 
+   }
 
     updatePointsDisplay()
     firstGuess = null;
@@ -145,6 +141,11 @@ function updateNumberOfCardsDisplay() {
 
 function updatePointsDisplay() {
     pointCounter.innerHTML = points;
+}
+
+
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
 }
 
 
