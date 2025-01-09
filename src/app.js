@@ -23,6 +23,7 @@ const images = [
 ]
 
 let firstGuess;
+let imagesInGame;
 
 let numberOfGuesses = 0;
 let numberOfPairs = 1;
@@ -76,9 +77,9 @@ function clickAddCards() {
 
 // ----------------------------------------------------------------------------
 
-// TODO: Create a function that sets a given amount of cards to the board
+
 function addCards() {
-    cardsArea.innerHTML = "";
+
     for (let i = 0; i < numberOfPairs; i++) {
         for (let j = 0; j < 2; j++) {
             let newCard = document.createElement("img")
@@ -93,6 +94,7 @@ function addCards() {
         }
     }
 }
+
 
 function openCard(openedCard, cardImage) {
     if (isRunning) {
@@ -165,7 +167,14 @@ function delay(time) {
 function endgame() {
     isRunning = false;
     body.style.backgroundColor = "lightblue";
-    initialize();
+    if (numberOfPairs === 0) {
+        body.style.backgroundColor = "lightgreen";
+        let endDiv = document.createElement("div");
+        let endMessage = document.createElement("p");
+        endMessage.innerHTML = "You finished the game with with " +numberOfGuesses + " guesses. Well Done!!!"
+        endDiv.appendChild(document.createElement("p"));
+        cardsArea.appendChild(endMessage);
+    }
 }
 
 
