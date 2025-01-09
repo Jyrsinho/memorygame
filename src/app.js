@@ -61,9 +61,7 @@ function clickStartGame() {
 }
 
 function clickStopGame() {
-    isRunning = false;
-    body.style.backgroundColor = "lightblue";
-    initialize();
+    endgame();
 }
 
 function clickAddCards() {
@@ -91,6 +89,7 @@ function addCards() {
             openCard(newCard, cardImage);
             });
             cardsArea.appendChild(newCard);
+
         }
     }
 }
@@ -123,6 +122,7 @@ async function checkForPair(openedCard) {
         await delay(1000);
         openedCard.style.display = "none";
         firstGuess.style.display = "none";
+        numberOfPairs--;
     // if the guess is incorrect
    } else {
         await delay(1000);
@@ -134,6 +134,11 @@ async function checkForPair(openedCard) {
     updatePointsDisplay()
     firstGuess = null;
     numberOfOpenedCards = 0;
+
+    if (numberOfPairs === 0) {
+        endgame();
+    }
+
 
 }
 
@@ -148,12 +153,18 @@ function updatePointsDisplay() {
 }
 
 function updateNumberOfGuesses() {
-    guessCounter.innerHTML = numberOfGuesses;
+    guessCounter.innerHTML = numberOfGuesses.toString();
 }
 
 
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
+}
+
+function endgame() {
+    isRunning = false;
+    body.style.backgroundColor = "lightblue";
+    initialize();
 }
 
 
