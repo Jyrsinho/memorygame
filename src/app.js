@@ -123,6 +123,7 @@ async function checkForPair(openedCard) {
         openedCard.style.display = "none";
         firstGuess.style.display = "none";
         numberOfPairs--;
+        updateNumberOfCardsDisplay();
     // if the guess is incorrect
    } else {
         await delay(1000);
