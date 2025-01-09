@@ -30,3 +30,7 @@ memory faster.
 
 So far It seems to me that I am mostly just accumulating questions. But 
 from now on I will do this project and update this learning diary after each session.
+
+## 10.1.2025
+Goal for today is to make cards in memory game appear in the game board in random order. 
+I started this already little bit yesterday.

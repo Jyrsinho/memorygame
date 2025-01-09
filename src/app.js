@@ -23,7 +23,6 @@ const images = [
 ]
 
 let firstGuess;
-let imagesInGame;
 
 let numberOfGuesses = 0;
 let numberOfPairs = 1;
@@ -77,29 +76,43 @@ function clickAddCards() {
 
 // ----------------------------------------------------------------------------
 
+/**
+ * Shuffles the given array to a random order
+ */
+function shuffleCards() {
 
+}
+
+// TODO shuffling and dealing of the cards.
 function addCards() {
+    //shuffle cards in reserve deck
+    //deal two cards of the same kind to the playing deck
+    //remove the image of the dealt cards from the reserve deck.
+    // shuffle playing deck
+    // deal playing deck
 
-    for (let i = 0; i < numberOfPairs; i++) {
-        for (let j = 0; j < 2; j++) {
-            let newCard = document.createElement("img")
-            let cardImage = document.createElement("img")
-            newCard.src = cardBackgroundImage;
-            cardImage.src = images.at(i).img;
-            newCard.addEventListener ("click", function () {
+
+    cardsArea.innerHTML = ""; // Removes all the cards
+    shuffleCards(images)
+    let cardImage = images.pop().img;
+
+    for (let i = 0; i < 2; i++) {
+        let newCard = document.createElement("img")
+        newCard.src = cardBackgroundImage;
+        newCard.addEventListener("click", function () {
             openCard(newCard, cardImage);
-            });
-            cardsArea.appendChild(newCard);
-
-        }
+        });
+        cardsArea.appendChild(newCard);
     }
+
+
 }
 
 
 function openCard(openedCard, cardImage) {
     if (isRunning) {
         if (openedCard.src.includes(cardBackgroundImage) && numberOfOpenedCards < 2) {
-            openedCard.src = cardImage.src
+            openedCard.src = cardImage
             numberOfOpenedCards++;
         }
 
