@@ -43,5 +43,7 @@ I have to learn how to properly debug these web apps in the browser or in the ID
 
 Little bit frustrating day today.
 
-
+Also found out that it is really helpful to think this sort of program in terms how game like this would play out in the
+real world...maybe I could even do more abstraction like with using objects like dealer or player or deck or etc. Have to also
+find out how JS supports objects.
 

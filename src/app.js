@@ -91,12 +91,6 @@ function getRandomInt(min, max)   {
  * Shuffles the given array to a random order
  */
 function shuffleCards(originalDeck) {
-    //Write down the numbers from 1 through N.
-    //Pick a random number k between one and the number of unstruck numbers remaining (inclusive).
-    //Counting from the low end, strike out the kth number not yet struck out, and write it down at the
-    // end of a separate list.
-    // Repeat from step 2 until all the numbers have been struck out.
-    // The sequence of numbers written down in step 3 is now a random permutation of the original numbers.
 
     let shuffledDeck = [];
     let randomNumber;
@@ -105,12 +99,15 @@ function shuffleCards(originalDeck) {
 
         randomNumber = getRandomInt(0, originalDeck.length - 1);
         // pick a card from the randomNumber pointed index. If that index is empty pick from the next one
+        /*
         while (originalDeck[randomNumber] === undefined) {
             randomNumber++;
             if (randomNumber > originalDeck.length -1) {
                 randomNumber = 0;
             }
         }
+
+         */
         let cardToBeDealt = originalDeck.at(randomNumber)
 
         // delete the dealt card from the original deck
@@ -141,6 +138,8 @@ function addCardsToBoard() {
 
 
 function addCards() {
+    // TODO: Maybe this should happen already at the initialize phase.
+    // TODO: The return value of the shufflecards function is not used now at all.
     //shuffle cards in reserve deck
     shuffleCards(reserveDeck);
     //deal two cards of the same kind to the playing deck and remove the dealt card from the reserve deck.
