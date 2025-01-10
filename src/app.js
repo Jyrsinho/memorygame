@@ -1,5 +1,5 @@
 "use strict";
-const images = [
+const reserveDeck = [
     {
         'name': 'baby-turtle',
         'img': 'assets/baby_turtle.png',
@@ -21,6 +21,7 @@ const images = [
         'img': 'assets/socklady.png',
     }
 ]
+let playingDeck = [];
 
 let firstGuess;
 
@@ -30,7 +31,7 @@ let numberOfOpenedCards = 0;
 const cardBackgroundImage = "assets/backpattern.png";
 let isRunning = false;
 let points = 0;         // points accumulated by the player
-const maximumAmountOfPairs = images.length // Maximum amount of cards in the game
+const maximumAmountOfPairs = reserveDeck.length // Maximum amount of cards in the game
 
 
 
@@ -83,28 +84,37 @@ function shuffleCards() {
 
 }
 
-// TODO shuffling and dealing of the cards.
-function addCards() {
-    //shuffle cards in reserve deck
-    //deal two cards of the same kind to the playing deck
-    //remove the image of the dealt cards from the reserve deck.
-    // shuffle playing deck
-    // deal playing deck
 
+function addCardsToBoard() {
+    cardsArea.innerHTML = ""; // Removes all the cards from the board
 
-    cardsArea.innerHTML = ""; // Removes all the cards
-    shuffleCards(images)
-    let cardImage = images.pop().img;
-
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < playingDeck.length; i++) {
         let newCard = document.createElement("img")
         newCard.src = cardBackgroundImage;
+        let cardImage = playingDeck[i].img;
         newCard.addEventListener("click", function () {
             openCard(newCard, cardImage);
         });
         cardsArea.appendChild(newCard);
     }
 
+}
+
+
+function addCards() {
+    //shuffle cards in reserve deck
+    shuffleCards(reserveDeck);
+    //deal two cards of the same kind to the playing deck and remove the dealt card from the reserve deck.
+    let cardToBeAdded = reserveDeck.pop();
+
+    for (let i = 0; i < 2; i++) {
+        playingDeck.push(cardToBeAdded);
+    }
+
+    // shuffle playing deck
+    shuffleCards(playingDeck);
+    // deal playing deck
+    addCardsToBoard();
 
 }
 
