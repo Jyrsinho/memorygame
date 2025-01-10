@@ -78,10 +78,49 @@ function clickAddCards() {
 // ----------------------------------------------------------------------------
 
 /**
+ * Generates a random integer between min and max values
+ * @param min minimum value
+ * @param max maximum value
+ */
+function getRandomInt(min, max)   {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+/**
  * Shuffles the given array to a random order
  */
-function shuffleCards() {
+function shuffleCards(originalDeck) {
+    //Write down the numbers from 1 through N.
+    //Pick a random number k between one and the number of unstruck numbers remaining (inclusive).
+    //Counting from the low end, strike out the kth number not yet struck out, and write it down at the
+    // end of a separate list.
+    // Repeat from step 2 until all the numbers have been struck out.
+    // The sequence of numbers written down in step 3 is now a random permutation of the original numbers.
 
+    let shuffledDeck = [];
+    let randomNumber;
+
+    for (let i = 0; i < originalDeck.length; i++) {
+
+        randomNumber = getRandomInt(0, originalDeck.length - 1);
+        // pick a card from the randomNumber pointed index. If that index is empty pick from the next one
+        while (originalDeck[randomNumber] === undefined) {
+            randomNumber++;
+            if (randomNumber > originalDeck.length -1) {
+                randomNumber = 0;
+            }
+        }
+        let cardToBeDealt = originalDeck.at(randomNumber)
+
+        // delete the dealt card from the original deck
+        delete originalDeck.at(randomNumber);
+        // add the chosen card to the shuffled deck.
+        shuffledDeck[i] = cardToBeDealt;
+
+    }
+
+    return shuffledDeck;
 }
 
 

@@ -34,3 +34,14 @@ from now on I will do this project and update this learning diary after each ses
 ## 10.1.2025
 Goal for today is to make cards in memory game appear in the game board in random order. 
 I started this already little bit yesterday.
+
+Would have been nice if JS had some sort of inbuilt method for shuffling arrays...Now it seems I have 
+created some sort of infinite loop in my own shuffling algorithm :D
+
+Tomorrow I have to learn how to do unit testing in JS. Debugging without any unit tests is such a pain in the butt...also
+I have to learn how to properly debug these web apps in the browser or in the IDE.
+
+Little bit frustrating day today.
+
+
+
