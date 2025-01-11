@@ -1,5 +1,6 @@
 "use strict";
-import getRandomInt from "./utils/getRandomInt";
+import shuffleArray from "./utils/shuffleArray.js"
+
 
 const reserveDeck = [
     {
@@ -80,41 +81,6 @@ function clickAddCards() {
 // ----------------------------------------------------------------------------
 
 
-
-/**
- * Shuffles the given array to a random order
- */
-function shuffleCards(originalDeck) {
-
-    let shuffledDeck = [];
-    let randomNumber;
-
-    for (let i = 0; i < originalDeck.length; i++) {
-
-        randomNumber = getRandomInt(0, originalDeck.length - 1);
-        // pick a card from the randomNumber pointed index. If that index is empty pick from the next one
-        /*
-        while (originalDeck[randomNumber] === undefined) {
-            randomNumber++;
-            if (randomNumber > originalDeck.length -1) {
-                randomNumber = 0;
-            }
-        }
-
-         */
-        let cardToBeDealt = originalDeck.at(randomNumber)
-
-        // delete the dealt card from the original deck
-        delete originalDeck.at(randomNumber);
-        // add the chosen card to the shuffled deck.
-        shuffledDeck[i] = cardToBeDealt;
-
-    }
-
-    return shuffledDeck;
-}
-
-
 function addCardsToBoard() {
     cardsArea.innerHTML = ""; // Removes all the cards from the board
 
@@ -135,16 +101,16 @@ function addCards() {
     // TODO: Maybe this should happen already at the initialize phase.
     // TODO: The return value of the shufflecards function is not used now at all.
     //shuffle cards in reserve deck
-    shuffleCards(reserveDeck);
+    let shuffledReserveDeck = shuffleArray(reserveDeck);
     //deal two cards of the same kind to the playing deck and remove the dealt card from the reserve deck.
-    let cardToBeAdded = reserveDeck.pop();
+    let cardToBeAdded = shuffledReserveDeck.pop();
 
     for (let i = 0; i < 2; i++) {
         playingDeck.push(cardToBeAdded);
     }
 
     // shuffle playing deck
-    shuffleCards(playingDeck);
+    shuffleArray(playingDeck);
     // deal playing deck
     addCardsToBoard();
 
