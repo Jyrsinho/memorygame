@@ -1,4 +1,6 @@
 "use strict";
+import getRandomInt from "./utils/getRandomInt";
+
 const reserveDeck = [
     {
         'name': 'baby-turtle',
