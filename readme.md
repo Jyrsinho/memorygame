@@ -47,3 +47,9 @@ Also found out that it is really helpful to think this sort of program in terms 
 real world...maybe I could even do more abstraction like with using objects like dealer or player or deck or etc. Have to also
 find out how JS supports objects.
 
+## 11.1.2025
+Learned basics of writing Jest unit tests. I will try to incorporate them into
+the project and untangle the mess I made yesterday.
+
+...I was able to install jest but untangling and rearranging more functions into the utils
+directory will have to be done tomorrow.
