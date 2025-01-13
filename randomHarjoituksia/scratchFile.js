@@ -32,4 +32,3 @@ console.log(longestWord(...wordsArray));
 
 console.log(longestWord("auto", "kissa", "kana", "koira",
     "karsinogeenikokoelma"));
-

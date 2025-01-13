@@ -1,5 +1,6 @@
-"use strict";
 import shuffleArray from "./utils/shuffleArray.js"
+"use strict";
+
 
 
 const reserveDeck = [
@@ -98,8 +99,6 @@ function addCardsToBoard() {
 
 
 function addCards() {
-    // TODO: Maybe this should happen already at the initialize phase.
-    // TODO: The return value of the shufflecards function is not used now at all.
     //shuffle cards in reserve deck
     let shuffledReserveDeck = shuffleArray(reserveDeck);
     //deal two cards of the same kind to the playing deck and remove the dealt card from the reserve deck.

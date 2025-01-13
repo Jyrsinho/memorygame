@@ -60,3 +60,9 @@ the project and untangle the mess I made yesterday.
 directory will have to be done tomorrow.
 
 ## 12.1.2025
+Moved functions to util and now source code is much clearer. However now I have
+issues I cannot yet comprehend with how those util functions need to be imported so 
+that the rest of the program can use them...time to comprehend that.
+
+Apparently some of my code is in Node.JS syntax when it should be in
+ES6 syntax...and somehow that is now messing also with my unittests.

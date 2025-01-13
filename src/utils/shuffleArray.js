@@ -1,9 +1,10 @@
-const getRandomInt = require('./getRandomInt');
+import getRandomInt from './getRandomInt';
+import pickAndDeleteFromArray from "./pickAndDeleteFromArray";
 
 /**
  * Shuffles the given array to a random order
  */
-function shuffleArray(originalDeck) {
+export default function shuffleArray(originalDeck) {
 
     let shuffledDeck = [];
     let randomNumber;
@@ -16,10 +17,7 @@ function shuffleArray(originalDeck) {
         let pickedCard = pickAndDeleteFromArray(originalDeck);
         // add the chosen card to the shuffled deck.
         shuffledDeck.push(pickedCard);
-
     }
 
     return shuffledDeck;
 }
-
-module.exports = shuffleArray;
