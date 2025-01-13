@@ -14,12 +14,17 @@ Count the users points.
 
 Keep track of the time it took for the user to complete the game.
 
+## Things I should do:
+- Turn array/object containing images of the cards into a JSON file
+
+## Learning material
+https://eloquentjavascript.net/
 
 
 # Learning Diary
 
 ## 9.1.2025
-For couple of days I have been now just playing around. I have learned the
+For a couple of days I have been now just playing around. I have learned the
 basics of how to manipulate DOM objects. Also I have learned some of the 
 basics of JavaScript.
 
@@ -53,3 +58,5 @@ the project and untangle the mess I made yesterday.
 
 ...I was able to install jest but untangling and rearranging more functions into the utils
 directory will have to be done tomorrow.
+
+## 12.1.2025

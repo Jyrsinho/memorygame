@@ -1,4 +1,4 @@
-const getRandomInt = require('./getRandomInt')
+const getRandomInt = require('../src/utils/getRandomInt')
 
 test('getRandomInt returns number 3 when given 3 and 3', () => {
     expect(getRandomInt(3,3)).toBe(3);
