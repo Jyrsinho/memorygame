@@ -1,5 +1,5 @@
-import getRandomInt from './getRandomInt';
-import pickAndDeleteFromArray from "./pickAndDeleteFromArray";
+import getRandomInt from './getRandomInt.js';
+import pickAndDeleteFromArray from "./pickAndDeleteFromArray.js";
 
 /**
  * Shuffles the given array to a random order

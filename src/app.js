@@ -85,14 +85,17 @@ function clickAddCards() {
 function addCardsToBoard() {
     cardsArea.innerHTML = ""; // Removes all the cards from the board
 
-    for (let i = 0; i < playingDeck.length; i++) {
-        let newCard = document.createElement("img")
-        newCard.src = cardBackgroundImage;
-        let cardImage = playingDeck[i].img;
-        newCard.addEventListener("click", function () {
-            openCard(newCard, cardImage);
-        });
-        cardsArea.appendChild(newCard);
+    if( playingDeck.length > 0 ) {
+
+        for (let i = 0; i < playingDeck.length; i++) {
+            let newCard = document.createElement("img")
+            newCard.src = cardBackgroundImage;
+            let cardImage = playingDeck[i].img;
+            newCard.addEventListener("click", function () {
+                openCard(newCard, cardImage);
+            });
+            cardsArea.appendChild(newCard);
+        }
     }
 
 }

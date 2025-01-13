@@ -4,7 +4,7 @@
  * @param array
  * @param index from where the element will be removed
  */
-function pickAndDeleteFromArray(array, index) {
+export default function pickAndDeleteFromArray(array, index) {
     let picked = array[index];
 
     array.splice(index, 1);
@@ -12,4 +12,3 @@ function pickAndDeleteFromArray(array, index) {
     return picked;
 }
 
-module.exports = pickAndDeleteFromArray;

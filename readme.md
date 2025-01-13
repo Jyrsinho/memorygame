@@ -66,3 +66,6 @@ that the rest of the program can use them...time to comprehend that.
 
 Apparently some of my code is in Node.JS syntax when it should be in
 ES6 syntax...and somehow that is now messing also with my unittests.
+
+Have to stop because baby is crying but tomorrow I have to start from learning about modules and how 
+they are different in that ECMASCRIPT or in Node.js and what version I am actually using now.

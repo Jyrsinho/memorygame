@@ -1,4 +1,4 @@
-const shuffleArray = require('./shuffleArray')
+const shuffleArray = require('../src/utils/shuffleArray')
 
 test('shuffleArray should return same size array as it was given', () => {
     let testArray = ["auto", "kana", "koira"];
