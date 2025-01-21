@@ -1,17 +1,28 @@
-const shuffleArray = require('../src/utils/shuffleArray')
+import shuffleArray from "../src/utils/shuffleArray.js";
+import { expect } from 'chai';
 
-test('shuffleArray should return same size array as it was given', () => {
-    let testArray = ["auto", "kana", "koira"];
-    let shuffledTestArray = shuffleArray(testArray);
-    expect(shuffledTestArray.length).toBe(3);
+
+
+
+describe("shuffleArray", () => {
+    describe("returns same size array", () => {
+        it ("should return same sized array as it was given", () => {
+            let testArray = [1,2,3,4,5,6,7,8,9,10];
+            let length = testArray.length;
+            shuffleArray(testArray);
+            expect(testArray).to.have.length(length);
+        })
+    })
+    describe("contains same elements",() => {
+        it ("should contain the same elements that it was given", () => {
+            let testArray = [1,2,3,4,5,6,7,8,9,10];
+            let shuffledArray = shuffleArray(testArray);
+            expect(shuffledArray).to.have.members(originalArray); // Checks for the same elements, ignoring order
+            expect(originalArray).to.have.members(shuffledArray);
+        })
+    })
 })
 
 
-test('shuffleArray should contain the same elements as original array', () => {
-    const originalArray = [1, 2, 3, 4, 5];
-    const shuffledArray = shuffleArray([...originalArray]);
 
-    // Check that both arrays have the same elements
-    expect(shuffledArray).toEqual(expect.arrayContaining(originalArray));
-    expect(originalArray).toEqual(expect.arrayContaining(shuffledArray));
-});
+

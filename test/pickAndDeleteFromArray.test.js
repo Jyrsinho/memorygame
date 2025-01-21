@@ -22,8 +22,10 @@ describe("pickAndDeleteFromArray", () => {
             let testArray = [1, 2, 3];
             let length = testArray.length;
             pickAndDeleteFromArray(testArray, 1);
-            assert.equal((testArray.length), length -1);
-            assert.equal(testArray, [1,3]);
+            assert.equal(testArray.length, length -1);
+            console.log(testArray);
+            assert.deepStrictEqual(testArray, [1, 3]);
+
         })
     })
 })
