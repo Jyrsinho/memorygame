@@ -209,6 +209,11 @@ window.onload = function () {
 
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Your code here
+    console.log("DOM is fully loaded and parsed");
+});
+
 
 
 

@@ -71,4 +71,8 @@ Have to stop because baby is crying but tomorrow I have to start from learning a
 they are different in that ECMASCRIPT or in Node.js and what version I am actually using now.
 
 ## 21.1.2025
-So Jest wants the modules to be CommonJS modules that have that 
+So there is a difference between CommonJS modules and ES6 modules. If you try to use them mixing and matching
+that doesn't seem to work. Now my project uses only ES6 modules. And because of that the unit testing framework is now 
+Mocha because that seems to support those ES6 modules more fluently.
+
+However that still doesn't help the fact that the game logic makes no sense...
