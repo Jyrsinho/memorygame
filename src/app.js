@@ -78,6 +78,7 @@ function clickStopGame() {
 function clickAddCards() {
     if (!isRunning) {
         if (numberOfPairs < maximumAmountOfPairs) {
+            numberOfPairs++;
             addCards();
         }
     }
@@ -107,16 +108,19 @@ function dealCardsToBoard(shuffledPlayingDeck) {
 
 function addCards() {
     let playingDeck = [];
-
-    numberOfPairs++;
+    ;
     updateNumberOfCardsDisplay();
 
+    // add the amount of pairs x 2 amount of cards to the playing deck
 
-    //deal two cards of the same kind to the playing deck and remove the dealt card from the reserve deck.
-    let cardToBeAdded = reserveDeck.pop();
+    for (let i = 0; i < numberOfPairs; i++) {
 
-    for (let i = 0; i < 2; i++) {
-        playingDeck.push(cardToBeAdded);
+        //deal two cards of the same kind to the playing deck.
+        let cardToBeAdded = reserveDeck[i];
+
+        for (let i = 0; i < 2; i++) {
+            playingDeck.push(cardToBeAdded);
+        }
     }
     // shuffle playing deck
     let shuffledPlayingDeck = shuffleArray(playingDeck);
