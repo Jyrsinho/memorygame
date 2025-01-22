@@ -2,7 +2,8 @@ import getRandomInt from './getRandomInt.js';
 import pickAndDeleteFromArray from "./pickAndDeleteFromArray.js";
 
 /**
- * Shuffles the given array to a random order
+ * Shuffles the given array to a random order and returns new array with original array's elements shuffled
+ * @return shuffled array
  */
 export default function shuffleArray(originalDeck) {
 

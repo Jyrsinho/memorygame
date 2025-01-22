@@ -76,3 +76,9 @@ that doesn't seem to work. Now my project uses only ES6 modules. And because of 
 Mocha because that seems to support those ES6 modules more fluently.
 
 However that still doesn't help the fact that the game logic makes no sense...
+
+## 22.1.2025
+The significant question is what is the most sensical way to randomize the decks while keeping track of which cards
+are already dealt/used.
+
+## 23.1.2025

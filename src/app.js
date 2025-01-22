@@ -3,7 +3,7 @@ import shuffleArray from "./utils/shuffleArray.js"
 
 
 
-const reserveDeck = [
+let reserveDeck = [
     {
         'name': 'baby-turtle',
         'img': 'images/baby_turtle.png',
@@ -25,7 +25,6 @@ const reserveDeck = [
         'img': 'images/socklady.png',
     }
 ]
-let playingDeck = [];
 
 let firstGuess;
 
@@ -55,8 +54,15 @@ stopGameButton.addEventListener("click", clickStopGame);
 
 // ----------------------------------------------------------------------------
 
+/**
+ * set up the game
+ * shuffle the order of the reserve deck
+ */
 function initialize() {
+    isRunning = false;
     points = 0;
+    //shuffle cards in reserve deck
+    reserveDeck = shuffleArray(reserveDeck);
 
 }
 
@@ -72,8 +78,6 @@ function clickStopGame() {
 function clickAddCards() {
     if (!isRunning) {
         if (numberOfPairs < maximumAmountOfPairs) {
-            numberOfPairs++;
-            updateNumberOfCardsDisplay();
             addCards();
         }
     }
@@ -82,15 +86,15 @@ function clickAddCards() {
 // ----------------------------------------------------------------------------
 
 
-function addCardsToBoard() {
+function dealCardsToBoard(shuffledPlayingDeck) {
     cardsArea.innerHTML = ""; // Removes all the cards from the board
 
-    if( playingDeck.length > 0 ) {
+    if( shuffledPlayingDeck.length > 0 ) {
 
-        for (let i = 0; i < playingDeck.length; i++) {
+        for (let i = 0; i < shuffledPlayingDeck.length; i++) {
             let newCard = document.createElement("img")
             newCard.src = cardBackgroundImage;
-            let cardImage = playingDeck[i].img;
+            let cardImage = shuffledPlayingDeck[i].img;
             newCard.addEventListener("click", function () {
                 openCard(newCard, cardImage);
             });
@@ -102,19 +106,22 @@ function addCardsToBoard() {
 
 
 function addCards() {
-    //shuffle cards in reserve deck
-    let shuffledReserveDeck = shuffleArray(reserveDeck);
+    let playingDeck = [];
+
+    numberOfPairs++;
+    updateNumberOfCardsDisplay();
+
+
     //deal two cards of the same kind to the playing deck and remove the dealt card from the reserve deck.
-    let cardToBeAdded = shuffledReserveDeck.pop();
+    let cardToBeAdded = reserveDeck.pop();
 
     for (let i = 0; i < 2; i++) {
         playingDeck.push(cardToBeAdded);
     }
-
     // shuffle playing deck
-    shuffleArray(playingDeck);
+    let shuffledPlayingDeck = shuffleArray(playingDeck);
     // deal playing deck
-    addCardsToBoard();
+    dealCardsToBoard(shuffledPlayingDeck);
 
 }
 
