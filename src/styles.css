@@ -23,6 +23,15 @@ div {
 
 #cards area {
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: chocolate;
+
+}
+
+#controlsarea {
+    display: flex;
+    justify-content: center;
 }
 
 .info {

@@ -160,6 +160,7 @@ async function checkForPair(openedCard) {
     if (openedCard.src === firstGuess.src) {
         points++
         await delay(1000);
+        // remove the opened cards from the DOM
         openedCard.style.display = "none";
         firstGuess.style.display = "none";
         numberOfPairs--;
@@ -183,6 +184,22 @@ async function checkForPair(openedCard) {
 }
 
 
+function endgame() {
+    isRunning = false;
+    body.style.backgroundColor = "lightblue";
+    initialize();
+
+    if (numberOfPairs === 0) {
+        body.style.backgroundColor = "lightgreen";
+        let endDiv = document.createElement("div");
+        let endMessage = document.createElement("p");
+        endMessage.innerHTML = "You finished the game with "+ numberOfPairs+ " pairs with " +numberOfGuesses + " guesses. Well Done!!!"
+        endDiv.appendChild(document.createElement("p"));
+        cardsArea.appendChild(endMessage);
+    }
+}
+
+
 function updateNumberOfCardsDisplay() {
     numberOfCardsDisplay.innerHTML = numberOfPairs.toString();
 }
@@ -201,20 +218,6 @@ function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
 
-function endgame() {
-    isRunning = false;
-    body.style.backgroundColor = "lightblue";
-    initialize();
-
-    if (numberOfPairs === 0) {
-        body.style.backgroundColor = "lightgreen";
-        let endDiv = document.createElement("div");
-        let endMessage = document.createElement("p");
-        endMessage.innerHTML = "You finished the game with with " +numberOfGuesses + " guesses. Well Done!!!"
-        endDiv.appendChild(document.createElement("p"));
-        cardsArea.appendChild(endMessage);
-    }
-}
 
 
 

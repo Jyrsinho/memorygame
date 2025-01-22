@@ -85,4 +85,7 @@ Now the logic of adding cards to the game works...there was no reason to remove 
 no idea why I ever thought that it would have been a good idea...and also why it took me this long to let go of 
 such a silly idea....live and learn.
 
+Did some dabbling with CSS but it feels to me like I have really no idea what I am trying to do there...Maybe I should 
+draw some sort of box model and try to replicate that using CSS instead of just punching buttons blindly.
+
 ## 23.1.2025
