@@ -81,4 +81,8 @@ However that still doesn't help the fact that the game logic makes no sense...
 The significant question is what is the most sensical way to randomize the decks while keeping track of which cards
 are already dealt/used.
 
+Now the logic of adding cards to the game works...there was no reason to remove things from the reserve-deck. I have
+no idea why I ever thought that it would have been a good idea...and also why it took me this long to let go of 
+such a silly idea....live and learn.
+
 ## 23.1.2025
