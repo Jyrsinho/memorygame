@@ -61,6 +61,10 @@ stopGameButton.addEventListener("click", clickStopGame);
 function initialize() {
     isRunning = false;
     points = 0;
+    updatePointsDisplay();
+    numberOfGuesses = 0;
+    updateNumberOfGuesses();
+
     //shuffle cards in reserve deck
     reserveDeck = shuffleArray(reserveDeck);
 
@@ -176,7 +180,6 @@ async function checkForPair(openedCard) {
         endgame();
     }
 
-
 }
 
 
@@ -201,6 +204,8 @@ function delay(time) {
 function endgame() {
     isRunning = false;
     body.style.backgroundColor = "lightblue";
+    initialize();
+
     if (numberOfPairs === 0) {
         body.style.backgroundColor = "lightgreen";
         let endDiv = document.createElement("div");
