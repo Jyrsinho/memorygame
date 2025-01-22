@@ -6,23 +6,23 @@ import shuffleArray from "./utils/shuffleArray.js"
 const reserveDeck = [
     {
         'name': 'baby-turtle',
-        'img': 'assets/baby_turtle.png',
+        'img': 'images/baby_turtle.png',
     },
     {
         'name': 'mars-rover',
-        'img': 'assets/mars-rover.png',
+        'img': 'images/mars-rover.png',
     },
     {
         'name': 'pattern1',
-        'img': 'assets/pattern1.png',
+        'img': 'images/pattern1.png',
     },
     {
         'name': 'rooster',
-        'img': 'assets/rooster.png',
+        'img': 'images/rooster.png',
     },
     {
         'name': 'socklady',
-        'img': 'assets/socklady.png',
+        'img': 'images/socklady.png',
     }
 ]
 let playingDeck = [];
@@ -32,7 +32,7 @@ let firstGuess;
 let numberOfGuesses = 0;
 let numberOfPairs = 1;
 let numberOfOpenedCards = 0;
-const cardBackgroundImage = "assets/backpattern.png";
+const cardBackgroundImage = "images/backpattern.png";
 let isRunning = false;
 let points = 0;         // points accumulated by the player
 const maximumAmountOfPairs = reserveDeck.length // Maximum amount of cards in the game
